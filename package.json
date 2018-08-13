@@ -1,0 +1,19 @@
+{
+  "name": "emma-scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Austin Gordon",
+    "email": "agordon@hutsoninc.com",
+    "url": "http://austinleegordon.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "emma-sdk": "0.0.3"
+  }
+}
