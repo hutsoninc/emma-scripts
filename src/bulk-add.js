@@ -1,29 +1,27 @@
 require('dotenv').config({ path: '../.env' });
 const { readFile } = require('./helpers');
-const Emma = require('emma-sdk');
-
-const emma = new Emma({
-    publicKey: process.env.EMMA_PUBLIC_KEY,
-    privateKey: process.env.EMMA_PRIVATE_KEY,
-    accountID: process.env.EMMA_ACCOUNT_ID
-});
+const { addOneMember } = require('./utils/add-one-member');
 
 const filePath = '../data/data.json';
 
-readFile(filePath, bulkAddMembers);
+readFile(filePath, bulkAdd);
 
-// Emma field names need to be mapped in the JSON data (key = field name)
-function bulkAddMembers(data) {
+function bulkAdd(data) {
 
-    emma.member.bulkAdd({
-        members: data,
-        source_filename: '', // File name to be associated with import
-        add_only: true,
-        group_ids: [],
-        automate_field_changes: false
-    }, (err, res) => {
-        if (err) console.log(err);
-        console.log(res);
-    });
+    for(let i = 0; i < data.length; i++) {
+
+        let memberData = Object.assign({}, data[i]);
+
+        let member = {
+            email: '',
+            fields: {
+                
+            },
+            group_ids: []
+        };
+        
+        addOneMember(member);
+
+    }
 
 }
