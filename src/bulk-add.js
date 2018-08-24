@@ -12,6 +12,7 @@ function bulkAdd(data) {
 
         let memberData = Object.assign({}, data[i]);
 
+        // Data needs to be mapped from the imported JSON (key = field name)
         let member = {
             email: '',
             fields: {
